@@ -24,6 +24,7 @@
 				<th>Razon social</th>
 				<th>Dirección</th>
 				<th>Telefono</th>
+				<th>Cantidad</th>
 				<th>Ver</th>
 				<th>Editar</th>				
 			</tr>

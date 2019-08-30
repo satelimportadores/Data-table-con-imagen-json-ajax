@@ -3,7 +3,7 @@ include('class.conexion.php');
 
 //traer clientes   
           $clientes = new Conexion;
-          $sql03 = "SELECT cardcode,cardname,direccion,telefono FROM tblclientes";
+          $sql03 = "SELECT cardcode,cardname,direccion,telefono,(SELECT COUNT(tblcc.id) FROM tblclientes_comentarios tblcc WHERE tblcc.cardcode = tblclientes.cardcode AND MONTH(fecha) = MONTH(CURDATE()) AND YEAR(fecha) = YEAR(CURDATE())) as cantidad FROM tblclientes ORDER BY cantidad DESC";
           $Rclientes = $clientes->query($sql03) or trigger_error($clientes->error);
 //traer clientes 
           

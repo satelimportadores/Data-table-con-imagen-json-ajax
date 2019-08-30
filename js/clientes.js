@@ -40,12 +40,29 @@ $('.cargando').show();
 			{data:"cardname"},
 			{data:"direccion"},
 			{data:"telefono"},
-			{data: 'cardcode', render: function ( data) {
+			{data:"cantidad", render: function (data,type) {
+						//console.log(data);
+        				//console.log(type);
+		            if(type === 'display'){
+							if (data <= 5) {
+								data = '<img src="images/face_0.png" width="50%"  class="img-circle img-responsive">';
+							}
+							if (data >= 6 && data < 10) {
+								data = '<img src="images/face_5.png" width="50%" class="img-circle img-responsive">';
+							}
+							if (data >= 10) {
+								data = '<img src="images/face_10.png" width="50%" class="img-circle img-responsive">';
+							}
+		            }
+		            return data;	
+       		 	}      
+      		},
+			{data: 'cardcode', render: function (data) {
 			   		return '<a class="btn btn-primary" href="profile.php?cardcode='+data+'"><i class="fa fa-eye"</i></a>';
           		
        		 	}      
       		},
-			{data: 'cardcode', render: function ( data) {
+			{data: 'cardcode', render: function (data) {
 			   		return '<a class="btn btn-danger" href="editar.php?cardcode='+data+'"><i class="fa fa-edit"</i></a>';
           		
        		 	}      
@@ -55,7 +72,6 @@ $('.cargando').show();
 		]
 	});
 	$('.cargando').hide();
-	data_editar("#clientes tbody", table);
-	data_eliminar("#clientes tbody", table);
+
 }
 
