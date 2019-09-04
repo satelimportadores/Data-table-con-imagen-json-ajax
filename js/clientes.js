@@ -62,7 +62,8 @@ $('.cargando').show();
           		
        		 	}      
       		},
-			{data: 'cardcode', render: function (data) {
+			{data: 'cardcode', render: function (data,type,row) {
+					console.log(row[2]);//Mostrar datos de otras columnas
 			   		return '<a class="btn btn-danger" href="editar.php?cardcode='+data+'"><i class="fa fa-edit"</i></a>';
           		
        		 	}      
